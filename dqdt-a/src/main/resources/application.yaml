@@ -1,0 +1,3 @@
+message: "Hello from A"
+dqdt-b:
+  url: http://localhost:8081/

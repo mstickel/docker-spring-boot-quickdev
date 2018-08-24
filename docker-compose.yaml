@@ -1,0 +1,24 @@
+version: '3'
+services:
+  dqdt-a:
+    image: openjdk:8-jdk-alpine
+    env_file: ./a.env
+    ports:
+      - "7580:8080"
+      - "7500:8000"
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
+    working_dir: /app/dqdt-a
+    command: './mvnw spring-boot:run'
+  dqdt-b:
+    image: openjdk:8-jdk-alpine
+    env_file: ./b.env
+    ports:
+      - "7581:8080"
+      - "7501:8000"
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
+    working_dir: /app/dqdt-b
+    command: './mvnw spring-boot:run'
